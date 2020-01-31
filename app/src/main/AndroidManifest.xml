@@ -45,9 +45,10 @@
         <activity android:name=".business.activities.Post_DeleteActivity"/>
         <activity android:name=".business.activities.PostActivity"/>
         <activity android:name=".business.activities.Pin_infoActivity"/>
+        <activity android:name=".business.activities.UserRegisterActivity"/>
 <!--        <activity android:name=".business.activities.HomeActivity"/>-->
     </application>
-    
+
     <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

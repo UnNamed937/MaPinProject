@@ -24,6 +24,8 @@ import com.facebook.login.LoginResult;
 import com.facebook.FacebookCallback;
 import android.util.Log;
 import myapplication.example.mapinproject.R;
+
+
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookException;
@@ -106,11 +108,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 checkpoint();
                 logically();
                 loginlink();
-
                 break;
         }
     }
-
+    private void changeActivity() {
+        Intent intent = new Intent(LoginActivity.this, UserRegisterActivity.class);
+        startActivity(intent);
+    }
     private void createAccount(String email, String password) {
         if (!validateForm()) {
             return;
@@ -170,7 +174,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void changeHomeActivity() {
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        Intent intent = new Intent(LoginActivity.this, UserRegisterActivity.class);
         startActivity(intent);
     }
 
@@ -185,9 +189,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // There's something already here! Finish the sign-in for your user.
             pendingResultTask
                     .addOnSuccessListener(
+
                             new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
+
                                     // User is signed in.
                                     // IdP data available in
                                     // authResult.getAdditionalUserInfo().getProfile().
@@ -195,6 +201,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     // authResult.getCredential().getAccessToken().
                                     // The OAuth secret can be retrieved by calling:
                                     // authResult.getCredential().getSecret().
+
                                 }
                             })
                     .addOnFailureListener(
@@ -207,8 +214,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } else {
             // There's no pending result so you need to start the sign-in flow.
             // See below.
-        }
 
+        }
     }
 
     private void logically() {
